@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rippling面试6天刷题计划 - 精选题单</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #5e3feb;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .day-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .day-header {
+            background: linear-gradient(135deg, #5e3feb 0%, #8b5cf6 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .day-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .topic {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        .session {
+            margin-bottom: 25px;
+        }
+        .session-title {
+            font-weight: bold;
+            color: #5e3feb;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border-bottom: 2px solid #5e3feb;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th {
+            background: #f0f7ff;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+            color: #5e3feb;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .problem-id {
+            font-weight: bold;
+            color: #5e3feb;
+        }
+        .difficulty-easy {
+            color: #4caf50;
+            font-weight: 500;
+        }
+        .difficulty-medium {
+            color: #ff9800;
+            font-weight: 500;
+        }
+        .difficulty-hard {
+            color: #f44336;
+            font-weight: 500;
+        }
+        .source {
+            font-size: 11px;
+            padding: 2px 4px;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+        .source-b75 {
+            background: #ffebee;
+            color: #c62828;
+        }
+        .source-lc150 {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        .source-nc150 {
+            background: #f3e5f5;
+            color: #6a1b9a;
+        }
+        .priority {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+        .review-note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 4px;
+        }
+        .summary {
+            background: #f3f0ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #8b5cf6;
+        }
+        tr:hover {
+            background: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎯 Rippling面试6天刷题计划</h1>
+    
+    <div class="summary">
+        <h3>📋 题目来源与重点分布</h3>
+        <ul>
+            <li>题目来源：<span class="source source-b75">B75</span> = Blind 75, <span class="source source-lc150">LC150</span> = LeetCode Top 150, <span class="source source-nc150">NC150</span> = NeetCode 150</li>
+            <li><strong>Day 1-2：</strong>图的DFS和BFS（最重要，2天深入）</li>
+            <li><strong>Day 3：</strong>拓扑排序 + 网格图DFS</li>
+            <li><strong>Day 4：</strong>网格图BFS + 并查集（半天）</li>
+            <li><strong>Day 5：</strong>二叉树DFS/BFS</li>
+            <li><strong>Day 6：</strong>BST + 综合复习</li>
+        </ul>
+    </div>
+
+    <!-- Day 1 -->
+    <div class="day-container">
+        <div class="day-header">
+            <div class="day-title">Day 1 - 10月14日（周二）</div>
+            <div class="topic">图的DFS专项</div>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">上午（7题）- 图DFS基础</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">133</td>
+                    <td>克隆图 <span class="priority">高频</span></td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-nc150">NC150</span></td>
+                    <td>图的深拷贝DFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">207</td>
+                    <td>课程表 <span class="priority">必考</span></td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>有向图环检测</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">323</td>
+                    <td>无向图中连通分量的数目</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-nc150">NC150</span></td>
+                    <td>DFS连通分量</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">261</td>
+                    <td>以图判树</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-nc150">NC150</span></td>
+                    <td>判断有效树</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">332</td>
+                    <td>重新安排行程</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>欧拉路径DFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1584</td>
+                    <td>连接所有点的最小费用</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>最小生成树</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">399</td>
+                    <td>除法求值</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>带权图DFS</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">下午（8题）- 图DFS进阶</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">417</td>
+                    <td>太平洋大西洋水流问题</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-nc150">NC150</span></td>
+                    <td>双向DFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1091</td>
+                    <td>二进制矩阵中的最短路径</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>8方向BFS（也可DFS）</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">841</td>
+                    <td>钥匙和房间</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>DFS可达性</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">802</td>
+                    <td>找到最终的安全状态</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>三色标记DFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">797</td>
+                    <td>所有可能的路径</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>DAG所有路径</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1971</td>
+                    <td>寻找图中是否存在路径</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td>入门题</td>
+                    <td>DFS路径存在</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1319</td>
+                    <td>连通网络的操作次数</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>连通分量个数</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">547</td>
+                    <td>省份数量</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>DFS连通分量</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="review-note">
+            <strong>晚上复习：</strong>整理DFS模板，visited数组，邻接表建图
+        </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="day-container">
+        <div class="day-header">
+            <div class="day-title">Day 2 - 10月15日（周三）</div>
+            <div class="topic">图的BFS专项 + 最短路径</div>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">上午（7题）- 图BFS基础</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">127</td>
+                    <td>单词接龙 <span class="priority">高频</span></td>
+                    <td class="difficulty-hard">困难</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>BFS最短路</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">433</td>
+                    <td>最小基因变化</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>BFS状态转换</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">909</td>
+                    <td>蛇梯棋</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>BFS游戏建模</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">752</td>
+                    <td>打开转盘锁</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>BFS状态空间</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">815</td>
+                    <td>公交路线</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td>经典题</td>
+                    <td>BFS建模</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1306</td>
+                    <td>跳跃游戏III</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>BFS可达性</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1311</td>
+                    <td>获取你好友已观看的视频</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>BFS层级遍历</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">下午（8题）- 最短路径算法</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">743</td>
+                    <td>网络延迟时间</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>Dijkstra算法</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">787</td>
+                    <td>K站中转内最便宜的航班</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>有限制最短路</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">778</td>
+                    <td>水位上升的泳池中游泳</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>Dijkstra/二分</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1514</td>
+                    <td>概率最大的路径</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>Dijkstra变形</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">126</td>
+                    <td>单词接龙II</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td>进阶题</td>
+                    <td>BFS+路径记录</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1129</td>
+                    <td>颜色交替的最短路径</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>BFS状态扩展</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">847</td>
+                    <td>访问所有节点的最短路径</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td>进阶题</td>
+                    <td>BFS+状态压缩</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1462</td>
+                    <td>课程表IV</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>Floyd/DFS可达性</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="review-note">
+            <strong>晚上复习：</strong>BFS模板，队列使用，Dijkstra算法，双向BFS优化
+        </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="day-container">
+        <div class="day-header">
+            <div class="day-title">Day 3 - 10月16日（周四）</div>
+            <div class="topic">拓扑排序 + 网格图DFS</div>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">上午（7题）- 拓扑排序</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">210</td>
+                    <td>课程表II <span class="priority">必考</span></td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>拓扑排序Kahn算法</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">269</td>
+                    <td>火星词典</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-nc150">NC150</span></td>
+                    <td>拓扑排序应用</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">310</td>
+                    <td>最小高度树</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>拓扑排序找中心</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1557</td>
+                    <td>可以到达所有点的最少点数目</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>入门题</td>
+                    <td>入度为0的节点</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">2115</td>
+                    <td>从给定原材料中找到所有可以做出的菜</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>应用题</td>
+                    <td>拓扑排序实践</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">2050</td>
+                    <td>并行课程III</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td>进阶题</td>
+                    <td>拓扑排序+DP</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">851</td>
+                    <td>喧闹和富有</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>进阶题</td>
+                    <td>拓扑排序+DP</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">下午（8题）- 网格图DFS</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">200</td>
+                    <td>岛屿数量 <span class="priority">必考</span></td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>网格DFS经典</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">695</td>
+                    <td>岛屿的最大面积</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>DFS计算面积</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">130</td>
+                    <td>被围绕的区域</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>边界DFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">79</td>
+                    <td>单词搜索</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>网格回溯DFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">212</td>
+                    <td>单词搜索II</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>Trie+网格DFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">733</td>
+                    <td>图像渲染</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>Flood Fill</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1254</td>
+                    <td>统计封闭岛屿的数目</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>边界岛屿</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1020</td>
+                    <td>飞地的数量</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>边界连通</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="review-note">
+            <strong>晚上复习：</strong>拓扑排序Kahn算法，网格图四方向遍历
+        </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="day-container">
+        <div class="day-header">
+            <div class="day-title">Day 4 - 10月17日（周五）</div>
+            <div class="topic">网格图BFS + 并查集</div>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">上午（7题）- 网格图BFS</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">994</td>
+                    <td>腐烂的橘子</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>多源BFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1162</td>
+                    <td>地图分析</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>多源BFS距离</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">542</td>
+                    <td>01矩阵</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>多源BFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">934</td>
+                    <td>最短的桥</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>DFS+BFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1293</td>
+                    <td>网格中的最短路径</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td>进阶题</td>
+                    <td>BFS+状态</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">1926</td>
+                    <td>迷宫中离入口最近的出口</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>经典题</td>
+                    <td>BFS最短路</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">463</td>
+                    <td>岛屿的周长</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>网格边界</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">下午（8题）- 并查集（5题）+ 高频复习（3题）</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">684</td>
+                    <td>冗余连接</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-nc150">NC150</span></td>
+                    <td>并查集检测环</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">737</td>
+                    <td>句子相似性II <span class="priority">面经题</span></td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>面经题</td>
+                    <td>并查集等价关系</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">990</td>
+                    <td>等式方程的可满足性</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>并查集判断矛盾</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">128</td>
+                    <td>最长连续序列</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>并查集/哈希表</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">721</td>
+                    <td>账户合并</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>并查集分组</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">200</td>
+                    <td>岛屿数量（第2遍）</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>复习</td>
+                    <td>三种解法总结</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">207</td>
+                    <td>课程表（第2遍）</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>复习</td>
+                    <td>DFS/BFS/拓扑</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">133</td>
+                    <td>克隆图（第2遍）</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td>复习</td>
+                    <td>DFS/BFS两种</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="review-note">
+            <strong>晚上复习：</strong>并查集模板（简版），多源BFS总结
+        </div>
+    </div>
+
+    <!-- Day 5 -->
+    <div class="day-container">
+        <div class="day-header">
+            <div class="day-title">Day 5 - 10月18日（周六）</div>
+            <div class="topic">二叉树DFS/BFS</div>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">上午（7题）- 二叉树DFS</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">104</td>
+                    <td>二叉树的最大深度</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>DFS基础</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">100</td>
+                    <td>相同的树</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>递归比较</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">226</td>
+                    <td>翻转二叉树</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>递归翻转</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">236</td>
+                    <td>二叉树的最近公共祖先</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span></td>
+                    <td>LCA经典</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">124</td>
+                    <td>二叉树中的最大路径和</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>全局变量+递归</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">543</td>
+                    <td>二叉树的直径</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>树的直径</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">572</td>
+                    <td>另一棵树的子树</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-nc150">NC150</span></td>
+                    <td>递归匹配</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">下午（8题）- 二叉树BFS + 更多题</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">102</td>
+                    <td>二叉树的层序遍历</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>BFS模板</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">199</td>
+                    <td>二叉树的右视图</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>层序遍历变形</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">297</td>
+                    <td>二叉树的序列化与反序列化</td>
+                    <td class="difficulty-hard">困难</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-nc150">NC150</span></td>
+                    <td>序列化</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">105</td>
+                    <td>从前序与中序遍历序列构造二叉树</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>递归构造</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">112</td>
+                    <td>路径总和</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>DFS路径</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">437</td>
+                    <td>路径总和III</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>前缀和+DFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">110</td>
+                    <td>平衡二叉树</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>自底向上DFS</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">101</td>
+                    <td>对称二叉树</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>递归对称</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="review-note">
+            <strong>晚上复习：</strong>二叉树递归三要素，前中后序遍历
+        </div>
+    </div>
+
+    <!-- Day 6 -->
+    <div class="day-container">
+        <div class="day-header">
+            <div class="day-title">Day 6 - 10月19日（周日）</div>
+            <div class="topic">BST + 最终复习</div>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">上午（7题）- 二叉搜索树</div>
+            <table>
+                <tr>
+                    <th width="10%">题号</th>
+                    <th width="30%">题目</th>
+                    <th width="10%">难度</th>
+                    <th width="15%">来源</th>
+                    <th width="35%">考点/备注</th>
+                </tr>
+                <tr>
+                    <td class="problem-id">98</td>
+                    <td>验证二叉搜索树</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>BST性质</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">230</td>
+                    <td>二叉搜索树中第K小的元素</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>中序遍历</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">235</td>
+                    <td>二叉搜索树的最近公共祖先</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-b75">B75</span></td>
+                    <td>BST的LCA</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">108</td>
+                    <td>将有序数组转换为二叉搜索树</td>
+                    <td class="difficulty-easy">简单</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>递归构造BST</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">450</td>
+                    <td>删除二叉搜索树中的节点</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span><span class="source source-nc150">NC150</span></td>
+                    <td>BST删除</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">173</td>
+                    <td>二叉搜索树迭代器</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-lc150">LC150</span></td>
+                    <td>BST迭代器</td>
+                </tr>
+                <tr>
+                    <td class="problem-id">701</td>
+                    <td>二叉搜索树中的插入操作</td>
+                    <td class="difficulty-medium">中等</td>
+                    <td><span class="source source-nc150">NC150</span></td>
+                    <td>BST插入</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="session">
+            <div class="session-title">下午 - 最终复习 + 模拟面试</div>
+            <table>
+                <tr>
+                    <th width="15%">时间</th>
+                    <th width="30%">任务</th>
+                    <th width="55%">内容</th>
+                </tr>
+                <tr>
+                    <td>14:00-14:45</td>
+                    <td>模拟Round 1</td>
+                    <td>图论题：200/207/133/127中选一</td>
+                </tr>
+                <tr>
+                    <td>15:00-15:45</td>
+                    <td>模拟Round 2</td>
+                    <td>树题：236/98/102中选一</td>
+                </tr>
+                <tr>
+                    <td>16:00-17:00</td>
+                    <td>高频题最终速刷</td>
+                    <td>200岛屿数量、207课程表、133克隆图、127单词接龙、737句子相似性II</td>
+                </tr>
+                <tr>
+                    <td>17:00-18:00</td>
+                    <td>算法模板总结</td>
+                    <td>DFS、BFS、拓扑排序、并查集、二叉树模板</td>
+                </tr>
+                <tr>
+                    <td>晚上</td>
+                    <td>放松休息</td>
+                    <td>早睡，明天最佳状态</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="review-note">
+            <strong>🔥 核心算法模板：</strong>
+            <ul>
+                <li>图DFS：visited + 邻接表递归</li>
+                <li>图BFS：queue + visited</li>
+                <li>网格DFS：四方向 + 边界检查</li>
+                <li>拓扑排序：入度数组 + 队列</li>
+                <li>并查集：find + union</li>
+                <li>Dijkstra：优先队列 + 距离数组</li>
+                <li>二叉树：递归三要素</li>
+                <li>BST：中序遍历有序</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h3>💪 面试当天（10月20日）注意事项</h3>
+        <ul>
+            <li>✅ 提前15分钟准备环境</li>
+            <li>✅ 先问clarifying questions</li>
+            <li>✅ 说清思路再编码</li>
+            <li>✅ 主动测试edge cases</li>
+            <li>✅ 分析时间空间复杂度</li>
+            <li>✅ 记住：面试官很友好(chill)</li>
+        </ul>
+        <br>
+        <strong style="color: #5e3feb;">加油Regina！你一定能拿下Rippling的offer！🚀</strong>
+    </div>
+</body>
+</html>
