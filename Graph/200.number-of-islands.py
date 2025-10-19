@@ -3,6 +3,14 @@
 #
 # [200] Number of Islands
 #
+"""
+网格图dfs
+1. start from a cell in the grid
+2. dfs:是否连通，没有返回值
+递归参数：[i,j]
+递归边界：不是1，走到网格边界
+递归关系：标记访问，上下左右继续调用dfs
+"""
 # @lc code=start
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
