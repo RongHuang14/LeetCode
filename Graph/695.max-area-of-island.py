@@ -12,15 +12,14 @@ class Solution:
         res = 0
         
         # 返回这个岛屿的面积
-        area = 0
         def dfs(r, c):
+            nonlocal area
             if not (0 <= r < m and 0<= c < n):
                 return 0
             if grid[r][c] != 1:
                 return 0
             
             grid[r][c] = 2
-            nonlocal area
             area += 1
             for dr, dc in directions:
                 area += dfs(r + dr, c + dc)
