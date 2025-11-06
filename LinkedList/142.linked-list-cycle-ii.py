@@ -23,9 +23,11 @@ class Solution:
             fast = fast.next.next
             
             if slow == fast:
-                while slow is not head:
+                slow = head
+                # 让 slow 回到起点，fast 留在相遇点, 最终会在入口处相遇
+                while slow != fast:
                     slow = slow.next
-                    head = head.next
+                    fast = fast.next
                 return slow
         return None
 # @lc code=end
