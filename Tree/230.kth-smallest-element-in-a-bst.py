@@ -13,17 +13,36 @@
 #         self.right = right
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        """
+        BST中序遍历找第k小
+        
+        【切入点】
+        BST中序遍历 = 升序序列 → 第k个访问的就是第k小
+        
+        【核心思路】
+        1. 中序遍历（左→根→右）
+        2. 用计数器倒数，访问一个节点就 cnt -= 1
+        3. cnt == 0 时记录答案并停止遍历
+        
+        时间 O(H+k)：最多访问 k 个节点
+        空间 O(H)：递归栈深度
+        """
         def dfs(node): 
-            if not node or len(inorder) == k:
+            nonlocal ans, cnt
+            if not node or ans is not None: # 找到答案就停
                 return
             dfs(node.left)
-            if len(inorder) < k:  # 避免多余的添加
-                inorder.append(node.val)
+            # 访问当前节点，计数器减1
+            cnt -= 1
+            if cnt == 0:
+                ans = node.val # 找到第k个了！
+                return
             dfs(node.right)
         
-        inorder = []
+        ans = None # 答案：初始为None
+        cnt = k # 计数器：从k倒数到0
         dfs(root)
-        return inorder[k-1]
+        return ans
         
 # @lc code=end
 
