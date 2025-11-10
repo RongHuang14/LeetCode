@@ -18,11 +18,11 @@ class Trie:
     def insert(self, word: str) -> None:
         cur = self.root
         for c in word:
-            idx = ord('c') - ord('a')
+            idx = ord(c) - ord('a')
             if not cur.next[idx]:
                 cur.next[idx] = Node()
             cur = cur.next[idx]
-            cur.is_end = True
+        cur.is_end = True
             
 
     def search(self, word: str) -> bool:
