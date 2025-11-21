@@ -26,6 +26,6 @@ class Solution:
                 right = mid # 蓝色
             else:
                 left = mid # 红色
-        return right
+        return nums[right]
 # @lc code=end
 

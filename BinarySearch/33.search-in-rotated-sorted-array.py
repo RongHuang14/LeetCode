@@ -16,7 +16,7 @@ class Solution:
         2) if nums[mid] <= nums[-1], mid在一段递增的或者两段递增的右边这段
            target > nums[-1], target在两段递增的左边这段
             mid还是在target及其右侧，染成蓝色
-        3) target和mid都在第二段，nums[mid] >= target
+        3) target和mid都在第二段，nums[mid] >= target，染成蓝色
         """
         def is_blue(i):
             end = nums[-1]

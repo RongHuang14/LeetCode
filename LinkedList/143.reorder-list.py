@@ -30,28 +30,6 @@ class Solution:
         return pre
     
     def reorderList(self, head: Optional[ListNode]) -> None:
-        """
-        Do not return anything, modify head in-place instead.
-        """
-        """
-        revers second half and merge first and second alternately. o(n) o(1)
-
-        Steps:
-        1. Find the middle node using slow/fast pointers
-        2. Reverse the second half starting from mid
-        3. Merge head and reversed second half alternately
-
-        Important:
-        - The last node from the reversed list (head2) is shared with the original list.
-        - If we continue merging when head2 == last node (e.g., node 3), it might form a self-loop like 3 → 3.
-        - So we use `while head2.next:` to skip the last node and avoid a cycle.
-
-        Example:
-        Input: [2, 4, 6, 8]
-        1: mid = 6
-        2: reverse(6) = 8 → 6
-        3: merge: 2 → 8 → 4 → 6
-        """
         mid = self.middleNode(head)
         head2 = self.reverseList(mid)
         
@@ -69,4 +47,8 @@ class Solution:
             
         
 # @lc code=end
+if __name__ == "__main__":
+    # input: [0, 1, 2, 3, 4, 5, 6]
+    # output: [0, n-1, 1, n-2, 2, n-3, ...]
+    
 
