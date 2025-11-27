@@ -36,7 +36,7 @@ class Solution:
         def dfs(node, cnt):
             if not node:
                 return
-            cnt += 1
+            cnt += 1 # 进入节点，深度+1
             nonlocal ans
             ans = max(ans,cnt)
             dfs(node.left, cnt)

@@ -13,19 +13,18 @@
 #         self.right = right
 # 中序
 class Solution:
-    pre = -inf
-    def isValidBST(self, root: Optional[TreeNode], left=-inf, right=inf) -> bool:
-        if root is None:
+    prev = float('-inf')
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        if not root:
             return True
         if not self.isValidBST(root.left):
             return False
-        if root.val <= self.pre:
+        if root.val <= self.prev:
             return False
-        self.pre = root.val
+        self.prev = root.val
         return self.isValidBST(root.right)
         
-# 后序
-python#
+# 后序#
 # @lc app=leetcode id=98 lang=python3
 #
 # [98] Validate Binary Search Tree
@@ -80,7 +79,7 @@ class Solution:
             # 当前节点必须 < 右子树的最小值（右边所有节点都应该比我大）
             if x <= l_max or x >= r_min:
                 # 违反BST性质，返回错误标记(-inf, inf)
-                # 这个组合不可能是正常子树的返回值（最小值>最大值）
+                # 这个组合不可能是正常子树的返回值（最小值<最大值）
                 return -inf, inf
             
             # BST合法，返回以当前节点为根的子树范围
