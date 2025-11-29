@@ -15,19 +15,19 @@ class Solution:
         n = len(digits)
         if n == 0:
             return []
-        
-        ans = []
-        path = [' '] * n
+        path = []
+        res = []
         def dfs(i):
             if i == n:
-                # 找到答案，数组转换为字符串，加到路径中
-                ans.append(''.join(path))
-                return 
-            # 非边界条件，枚举第i个字母是什么
-            for c in MAPPING[int(digits[i])]:
-                path[i] = c
+                res.append("".join(path))
+                return
+            
+            digit = int(digits[i])
+            for letter in MAPPING[digit]:
+                path.append(letter)
                 dfs(i + 1)
+                path.pop()
         dfs(0)
-        return ans
+        return res
 # @lc code=end
 
