@@ -14,10 +14,10 @@
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         """
-        BST中序遍历找第k小
+        DST中序遍历找第k小
         
         【切入点】
-        BST中序遍历 = 升序序列 → 第k个访问的就是第k小
+        DST中序遍历 = 升序序列 → 第k个访问的就是第k小
         
         【核心思路】
         1. 中序遍历（左→根→右）

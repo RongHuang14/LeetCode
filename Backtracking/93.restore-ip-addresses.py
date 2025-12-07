@@ -7,23 +7,13 @@
 # @lc code=start
 class Solution:
     def restoreIpAddresses(self, s: str) -> List[str]:
-        
         res = []
         path = []
         n = len(s)
         
+        # 一个段是否合法？单字符合法，多字符必须没有前导零，且值在 [0, 255] 范围内
         def is_valid(segment):
-            # 检查是否是合法的IP段
-            if len(segment) == 0 or len(segment) > 3:
-                return False
-            
-            # 前导0的情况：只有"0"合法，"01""001"等不合法
-            if segment[0] == '0' and len(segment) > 1:
-                return False
-            
-            # 数值范围 0-255
-            num = int(segment)
-            return 0 <= num <= 255
+            return len(segment) == 1 or (segment[0] != "0" and 0 <= int(segment) <= 255)
         
         def dfs(i):
              # 必须恰好4段

@@ -64,11 +64,10 @@ class LRUCache:
         node.next.prev = node.prev
     
     def add_to_head(self, node):
-        nxt = self.head.next
-        nxt.prev = node
-        node.next = nxt
         node.prev = self.head
-        self.head.next = node
+        node.next = self.head.next
+        node.prev.next = node
+        node.next.prev = node
         
     def get(self, key: int) -> int:
         if key not in self.cache:
