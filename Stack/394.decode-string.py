@@ -13,7 +13,7 @@ class Solution:
         for c in s:
             if c.isalpha():
                 res += c
-            elif c.isdigit(): # 可能是12这样的多位数）
+            elif c.isdigit(): # 可能是12这样的多位数
                 k = k * 10 + int(c)
             elif c == '[':
                 # 模拟递归
