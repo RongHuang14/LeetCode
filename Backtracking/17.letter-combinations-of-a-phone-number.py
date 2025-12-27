@@ -5,29 +5,29 @@
 #
 
 # @lc code=start
-MAPPING = ["", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"]
 class Solution:
     """
     T:O(n * 4^n)
     S:O(n)
     """
     def letterCombinations(self, digits: str) -> List[str]:
-        n = len(digits)
-        if n == 0:
+        mapping = ["","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"]
+        if not digits:
             return []
-        path = []
-        res = []
-        def dfs(i):
+
+        n = len(digits)
+        def dfs(i, path):
             if i == n:
-                res.append("".join(path))
+                res.append("".join(path)) # 注意这里join会返回一个新的字符串所以不需要shallow copy
                 return
             
-            digit = int(digits[i])
-            for letter in MAPPING[digit]:
-                path.append(letter)
-                dfs(i + 1)
+            d = int(digits[i])
+            for char in mapping[d]:
+                path.append(char)
+                dfs(i + 1, path)
                 path.pop()
-        dfs(0)
+        res = []
+        dfs(0,[])
         return res
 # @lc code=end
 
