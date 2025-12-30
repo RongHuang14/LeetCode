@@ -96,9 +96,30 @@ class LRUCache:
                 lru = self.tail.prev
                 self.remove(lru)
                 del self.cache[lru.key]# 链表里删 + cache里删，保持同步
-                
-        
-
+                   
+if __name__ == "__main__":
+    # Normal: 基本操作
+    lru = LRU(2)
+    lru.put(1, 1)
+    # head ↔ (1,1) ↔ tail
+    
+    lru.put(2, 2)
+    # head ↔ (2,2) ↔ (1,1) ↔ tail
+    
+    print(lru.get(1))  # 1
+    # head ↔ (1,1) ↔ (2,2) ↔ tail (1被访问，移到head)
+    
+    # Edge 1: 容量满，淘汰LRU
+    lru.put(3, 3)
+    # head ↔ (3,3) ↔ (1,1) ↔ tail (淘汰key=2)
+    
+    print(lru.get(2))  # -1 (key=2已被淘汰)
+    
+    # Edge 2: 更新已存在的key
+    lru.put(1, 10)
+    # head ↔ (1,10) ↔ (3,3) ↔ tail (更新val并移到head)
+    
+    print(lru.get(1))  # 10
 
 # Your LRUCache object will be instantiated and called as such:
 # obj = LRUCache(capacity)
