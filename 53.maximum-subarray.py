@@ -6,7 +6,7 @@
 
 # @lc code=start
 """
-1. 前缀和 + 贪心
+1. DP
 """
 from typing import List
 class Solution:
