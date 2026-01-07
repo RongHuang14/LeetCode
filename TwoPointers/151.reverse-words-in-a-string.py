@@ -1,0 +1,31 @@
+#
+# @lc app=leetcode id=151 lang=python3
+#
+# [151] Reverse Words in a String
+#
+
+# @lc code=start
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        s = s.strip()                            # 删除首尾空格
+        i = j = len(s) - 1
+        res = []
+        while i >= 0:
+            while i >= 0 and s[i] != ' ': i -= 1 # 搜索首个空格
+            res.append(s[i + 1: j + 1])          # 添加单词
+            while i >= 0 and s[i] == ' ': i -= 1 # 跳过单词间空格
+            j = i                                # j 指向下个单词的尾字符
+        return ' '.join(res)                     # 拼接并返回
+
+
+if __name__ == "__main__":
+    sol = Solution()
+    # normal case:
+    s1 = "the sky is blue"
+    print(sol.reverseWords(s1)) # output: "blue is sky the"
+    # edge case 1: have leading or trailing space
+    s2 = " hello word  "
+    print(sol.reverseWords(s2)) # output: "word hello"
+        
+# @lc code=end
+
