@@ -41,3 +41,55 @@ class Solution:
             if c == 0 and dfs(i):
                 return False # 有环
         return True # 没有环
+
+"""2. Toplogical Sort
+"""
+from collections import defaultdict,deque
+from typing import List
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        graph = defaultdict(list)
+        in_degree = [0] * numCourses
+        for course, prereq in prerequisites:
+            graph[prereq].append(course)
+            in_degree[course] += 1
+        
+        q = deque()
+        for n in range(numCourses):
+            if in_degree[n] == 0:
+                q.append(n)
+        finish = 0
+        while q:
+            node = q.popleft()
+            finish += 1
+            for nei in graph[node]:
+                in_degree[nei] -= 1
+                if in_degree[nei] == 0:
+                    q.append(nei)
+        return finish == numCourses
+
+if __name__ == "__main__":
+    sol = Solution()
+    
+    # Case 1: Possible to finish (Simple chain)
+    # 0 -> 1 (Take 0 first, then 1)
+    numCourses1 = 2
+    prerequisites1 = [[1, 0]] 
+    print(f"Case 1: {sol.canFinish(numCourses1, prerequisites1)}") # Expected: True
+
+    # Case 2: Impossible to finish (Cycle)
+    # 0 -> 1 and 1 -> 0 (Both wait for each other)
+    numCourses2 = 2
+    prerequisites2 = [[1, 0], [0, 1]]
+    print(f"Case 2: {sol.canFinish(numCourses2, prerequisites2)}") # Expected: False
+
+    # Case 3: Possible to finish (Complex dependencies)
+    # 0 is needed for 1 and 2; both 1 and 2 are needed for 3
+    numCourses3 = 4
+    prerequisites3 = [[1, 0], [2, 0], [3, 1], [3, 2]]
+    print(f"Case 3: {sol.canFinish(numCourses3, prerequisites3)}") # Expected: True
+
+    # Case 4: Possible to finish (No prerequisites at all)
+    numCourses4 = 3
+    prerequisites4 = []
+    print(f"Case 4: {sol.canFinish(numCourses4, prerequisites4)}") # Expected: True
